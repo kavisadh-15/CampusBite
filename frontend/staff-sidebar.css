@@ -1,0 +1,211 @@
+.staff-sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    width: 245px;
+    min-width: 245px;
+    padding: 26px 18px;
+    overflow-y: auto;
+    background: #171311;
+    border-right: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.staff-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 4px 8px 34px;
+}
+
+.staff-sidebar .brand-icon {
+    display: grid;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border-radius: 13px;
+    background: linear-gradient(135deg, #9b6b4f, #654333);
+    color: #f5eee8;
+    font-size: 21px;
+}
+
+.staff-sidebar .brand-text h2 {
+    color: #f5eee8;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.staff-sidebar .brand-text span {
+    display: block;
+    margin-top: 2px;
+    color: #998d86;
+    font-size: 11px;
+}
+
+.staff-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.staff-sidebar .staff-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 44px;
+    padding: 11px 14px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    color: #aaa09a;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: background 0.18s ease, color 0.18s ease;
+}
+
+.staff-sidebar .staff-nav-item > span:last-child {
+    font-size: 12px !important;
+}
+
+.staff-sidebar .staff-nav-item:hover {
+    background: rgba(255, 255, 255, 0.04);
+    color: #fff;
+}
+
+.staff-sidebar .staff-nav-item.active {
+    border-color: rgba(166, 115, 85, 0.18);
+    background: rgba(151, 103, 76, 0.2);
+    color: #e9cbb9;
+}
+
+.staff-sidebar .nav-icon {
+    flex: 0 0 20px;
+    text-align: center;
+    font-size: 17px;
+}
+
+.staff-sidebar .sidebar-bottom {
+    margin-top: auto;
+    padding-top: 22px;
+}
+
+.staff-sidebar .staff-user-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding: 13px 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.staff-sidebar .staff-avatar {
+    display: grid;
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border-radius: 50%;
+    background: #75513d;
+    color: #fff;
+    font-weight: 700;
+}
+
+.staff-sidebar .staff-user-info {
+    min-width: 0;
+}
+
+.staff-sidebar .staff-user-info strong,
+.staff-sidebar .staff-user-info span {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.staff-sidebar .staff-user-info strong {
+    color: #f5eee8;
+    font-size: 12px;
+}
+
+.staff-sidebar .staff-user-info span {
+    margin-top: 3px;
+    color: #81766f;
+    font-size: 10px;
+}
+
+.staff-sidebar .staff-logout-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 40px;
+    padding: 9px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 9px;
+    background: transparent;
+    color: #a9a09a;
+    font: inherit;
+    cursor: pointer;
+}
+
+.staff-sidebar .staff-logout-btn:hover {
+    background: rgba(255, 255, 255, 0.04);
+    color: #fff;
+}
+
+.staff-dashboard > .staff-main,
+.staff-layout > .staff-main,
+.staff-layout > .main-content {
+    width: calc(100% - 245px);
+    margin-left: 245px;
+}
+
+@media (max-width: 760px) {
+    .staff-sidebar {
+        width: 70px;
+        min-width: 70px;
+        padding: 20px 10px;
+    }
+
+    .staff-sidebar .staff-brand {
+        justify-content: center;
+        padding: 4px 0 25px;
+    }
+
+    .staff-sidebar .brand-text,
+    .staff-sidebar .staff-user-info,
+    .staff-sidebar .staff-nav-item > span:last-child,
+    .staff-sidebar .staff-logout-btn > span:last-child {
+        display: none;
+    }
+
+    .staff-sidebar .staff-nav-item {
+        justify-content: center;
+        padding: 11px 0;
+    }
+
+    .staff-sidebar .staff-user-card {
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .staff-sidebar .staff-logout-btn {
+        width: 40px;
+        min-height: 40px;
+        margin: 0 auto;
+        padding: 0;
+        font-size: 18px;
+    }
+
+    .staff-dashboard > .staff-main,
+    .staff-layout > .staff-main,
+    .staff-layout > .main-content {
+        width: calc(100% - 70px);
+        margin-left: 70px;
+    }
+}

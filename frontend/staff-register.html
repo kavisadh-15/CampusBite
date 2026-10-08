@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Staff Registration | CampusBite</title>
+
+    <link
+        rel="stylesheet"
+        href="staff-register.css">
+    <link rel="stylesheet" href="design-system.css?v=12">
+
+</head>
+
+<body>
+
+    <div class="staff-register-page">
+
+        <div class="staff-register-card">
+
+            <div class="staff-register-icon">
+                👨‍🍳
+            </div>
+
+            <h1>Staff Registration</h1>
+
+            <p class="staff-register-subtitle">
+                Create your CampusBite staff account.
+            </p>
+
+
+            <form id="staff-register-form">
+
+                <div class="staff-input-group">
+
+                    <label for="staff-name">
+                        Staff Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="staff-name"
+                        placeholder="Enter your name"
+                        required>
+
+                </div>
+
+
+                <div class="staff-input-group">
+
+                    <label for="staff-email">
+                        Staff Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="staff-email"
+                        placeholder="Enter your staff email"
+                        required>
+
+                </div>
+
+
+                <div class="staff-input-group">
+
+                    <label for="staff-password">
+                        Password
+                    </label>
+
+                    <div class="staff-password-box">
+
+                        <input
+                            type="password"
+                            id="staff-password"
+                            placeholder="Create a password"
+                            required>
+
+                        <button
+                            type="button"
+                            id="staff-password-toggle">
+                            👁️
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="staff-input-group">
+
+                    <label for="staff-confirm-password">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="staff-confirm-password"
+                        placeholder="Confirm your password"
+                        required>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="staff-register-btn">
+
+                    Create Staff Account
+
+                </button>
+
+
+                <p
+                    id="staff-register-message"
+                    class="staff-register-message">
+                </p>
+
+            </form>
+
+
+            <div class="staff-login-link">
+
+                <span>
+                    Already have an account?
+                </span>
+
+                <a href="staff-login.html">
+                    Staff Login
+                </a>
+
+            </div>
+
+
+            <a
+                href="login.html"
+                class="staff-back-link">
+
+                ← Back to Login
+
+            </a>
+
+        </div>
+
+    </div>
+    <script src="notification.js"></script>
+    <script src="staff-register.js"></script>
+
+</body>
+
+</html>

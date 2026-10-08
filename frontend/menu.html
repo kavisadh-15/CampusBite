@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Today's Menu - CampusBite</title>
+
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="canteen-status.css">
+    <link rel="stylesheet" href="design-system.css?v=12">
+</head>
+
+<body>
+
+    <div class="menu-page">
+
+        <header class="menu-header">
+            <div>
+                <h1>Today's Menu</h1>
+                <p>Fresh food, ready for your campus break.</p>
+            </div>
+
+            <a href="student-dashboard.html" class="back-btn">
+                ← Dashboard
+            </a>
+        </header>
+
+
+        <div class="menu-filters">
+
+            <button class="filter-btn active" data-category="All">
+                All
+            </button>
+
+            <button class="filter-btn" data-category="Breakfast">
+                Breakfast
+            </button>
+
+            <button class="filter-btn" data-category="Main Course">
+                Main Course
+            </button>
+
+            <button class="filter-btn" data-category="Snacks">
+                Snacks
+            </button>
+
+            <button class="filter-btn" data-category="Drinks">
+                Drinks
+            </button>
+
+            <button class="filter-btn" data-category="Desserts">
+                Desserts
+            </button>
+
+        </div>
+
+
+        <div id="menu-container" class="food-grid">
+            <!-- Menu items will appear here -->
+        </div>
+
+    </div>
+
+
+    <script src="canteen-status.js"></script>
+    <script src="notification.js"></script>
+    <script src="menu.js"></script>
+
+</body>
+</html>

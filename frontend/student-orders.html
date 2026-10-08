@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CampusBite - My Orders</title>
+
+    <link rel="stylesheet" href="student-orders.css">
+    <link rel="stylesheet" href="canteen-status.css">
+    <link rel="stylesheet" href="design-system.css?v=12">
+
+</head>
+
+<body>
+
+    <div class="orders-page">
+
+        <div class="orders-header">
+
+            <span class="section-label">
+                CAMPUSBITE
+            </span>
+
+            <h1>My Orders</h1>
+
+            <p>
+                Track your recent canteen orders.
+            </p>
+
+        </div>
+
+
+        <div id="orders-container">
+
+            <!-- Orders will load here -->
+
+        </div>
+
+
+        <div id="orders-empty"
+             class="orders-empty"
+             style="display:none;">
+
+            <h2>No orders yet</h2>
+
+            <p>
+                Your completed orders will appear here.
+            </p>
+
+            <button
+                onclick="window.location.href='student-dashboard.html'">
+
+                Browse Menu
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="canteen-status.js"></script>
+    <script src="notification.js"></script>
+    <script src="student-orders.js"></script>
+
+</body>
+
+</html>

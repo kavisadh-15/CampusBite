@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusBite - Checkout</title>
+
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="canteen-status.css">
+    <link rel="stylesheet" href="design-system.css?v=12">
+</head>
+
+<body>
+
+    <div class="checkout-page">
+
+        <div class="checkout-header">
+
+            <span class="section-label">
+                CAMPUSBITE
+            </span>
+
+            <h1>Checkout</h1>
+
+            <p>
+                Review your order and choose your pickup slot.
+            </p>
+
+        </div>
+
+
+        <div class="checkout-layout">
+
+            <!-- ORDER DETAILS -->
+
+            <div class="checkout-order">
+
+                <h2>Your Order</h2>
+
+                <div id="checkout-items">
+                    <!-- Cart items will appear here -->
+                </div>
+
+            </div>
+
+
+            <!-- ORDER SUMMARY -->
+
+            <div class="checkout-summary">
+
+                <span class="section-label">
+                    ORDER SUMMARY
+                </span>
+
+                <h2>Bill Details</h2>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <strong id="checkout-subtotal">₹0</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Pickup Fee</span>
+                    <strong>₹0</strong>
+                </div>
+
+                <div class="summary-divider"></div>
+
+                <div class="summary-total">
+                    <span>Total</span>
+                    <strong id="checkout-total">₹0</strong>
+                </div>
+
+
+                <!-- PICKUP SLOT -->
+
+                <!-- PICKUP SLOT -->
+
+<div class="pickup-section">
+
+    <h3>Choose Pickup Slot</h3>
+
+    <select id="pickup-slot">
+
+        <option value="">
+            Select a pickup slot
+        </option>
+
+        <!-- Morning -->
+
+        <option value="8:30 AM - 9:15 AM">
+            🌅 Morning • 8:30 AM - 9:15 AM
+        </option>
+
+        <option value="9:15 AM - 10:00 AM">
+            🌅 Morning • 9:15 AM - 10:00 AM
+        </option>
+
+        <option value="10:00 AM - 10:30 AM">
+            🌅 Morning • 10:00 AM - 10:30 AM
+        </option>
+
+
+        <!-- Interval -->
+
+        <option value="10:45 AM - 11:00 AM">
+            ☕ Interval • 10:45 AM - 11:00 AM
+        </option>
+
+
+        <!-- Lunch -->
+
+        <option value="12:00 PM - 1:00 PM">
+            🍱 Lunch • 12:00 PM - 1:00 PM
+        </option>
+
+        <option value="1:00 PM - 2:00 PM">
+            🍱 Lunch • 1:00 PM - 2:00 PM
+        </option>
+
+
+        <!-- Evening -->
+
+        <option value="3:00 PM - 3:45 PM">
+            🌆 Evening • 3:00 PM - 3:45 PM
+        </option>
+
+
+        <!-- Snacks -->
+
+        <option value="4:15 PM - 5:00 PM">
+            🥪 Snacks • 4:15 PM - 5:00 PM
+        </option>
+
+        <option value="5:00 PM - 5:15 PM">
+            🥪 Snacks • 5:00 PM - 5:15 PM
+        </option>
+
+    </select>
+
+</div>
+                <button class="checkout-pay-btn" id="continue-payment" onclick="continueToPayment()">
+                    Continue to Payment
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="canteen-status.js"></script>
+    <script src="notification.js"></script>
+    <script src="checkout.js"></script>
+
+</body>
+
+</html>

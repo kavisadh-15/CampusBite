@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusBite | Smart Canteen</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="canteen-status.css">
+    <link rel="stylesheet" href="design-system.css?v=12">
+</head>
+
+<body class="homepage">
+
+    <header class="navbar">
+
+        <div class="logo">
+            Campus<span>Bite</span>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#get-started">Get Started</a>
+        </nav>
+
+        <a href="login.html" class="nav-btn">Login</a>
+
+    </header>
+
+
+    <main class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="tagline">
+                YOUR CAMPUS, YOUR FOOD, YOUR TIME.
+            </p>
+
+            <h1>
+                Skip the Queue.<br>
+                <span>Grab Your Bite.</span>
+            </h1>
+
+            <p class="description">
+                Pre-order your favorite canteen food, pay digitally and collect it within a QR code
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#discover" class="primary-btn">
+                    Discover CampusBite
+                </a>
+
+                <button
+                    class="secondary-btn"
+                    onclick="document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' })">
+                    How It Works
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <div class="food-icon">
+                🍵
+            </div>
+
+            <h2>
+                Fresh, Fast, Ready.
+            </h2>
+
+            <p>
+                Your order will be prepared while you enjoy your break.
+            </p>
+
+            <div class="status" id="homepage-canteen-status" role="status" aria-live="polite">
+                <span></span>
+                Canteen Open
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Discover -->
+
+    <section class="discover-section" id="discover">
+
+        <div class="discover-content">
+
+            <p class="section-tag">
+                DISCOVER CAMPUSBITE
+            </p>
+
+            <h2>
+                One Platform.
+                <span>A Smarter Campus.</span>
+            </h2>
+
+            <p>
+                CampusBite is designed to make the everyday campus canteen experience faster, simpler and more convenient.
+            </p>
+
+
+            <div class="discover-points">
+
+                <div class="discover-point">
+
+                    <span>01</span>
+
+                    <div>
+                        <h3>Less Waiting</h3>
+                        <p>Spend less time standing in queues.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="discover-point">
+
+                    <span>02</span>
+
+                    <div>
+                        <h3>Simple Experience</h3>
+                        <p>Designed around the needs of campus users.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="discover-point">
+
+                    <span>03</span>
+
+                    <div>
+                        <h3>Smart & Organized</h3>
+                        <p>A better way to manage the campus canteen.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Features -->
+
+    <section class="account-section" id="features">
+
+        <div class="section-heading">
+
+            <p class="section-tag">
+                WHY CAMPUSBITE?
+            </p>
+
+            <h2>
+                Built for a <span>Better Campus</span>
+            </h2>
+
+            <p>
+                Everything you need to order, manage and collect your canteen food without the queue.
+            </p>
+
+        </div>
+
+
+        <div class="features-grid">
+
+            <div class="feature-card">
+
+                <div class="feature-icon">⚡</div>
+
+                <h3>Skip the Queue</h3>
+
+                <p>
+                    Order your food in advance and spend your break time enjoying it.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">💳</div>
+
+                <h3>Digital Payment</h3>
+
+                <p>
+                    Pay for your order digitally and get instant order confirmation.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">📱</div>
+
+                <h3>QR Pickup</h3>
+
+                <p>
+                    Get your unique QR code for every order and collect it quickly from the canteen.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- How It Works -->
+
+    <section class="process-section" id="how-it-works">
+
+        <div class="section-heading">
+
+            <p class="section-tag">
+                HOW IT WORKS
+            </p>
+
+            <h2>
+                Order in <span>4 Simple Steps</span>
+            </h2>
+
+            <p>
+                A simple and faster way to order, pay and collect your food.
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+            <div class="process-card">
+
+                <span>01</span>
+
+                <h3>Choose Your Food</h3>
+
+                <p>
+                    Browse today's menu and select your favourite food items.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <span>02</span>
+
+                <h3>Place your Order</h3>
+
+                <p>
+                    Add your items to the cart and select your preferred pickup slot.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <span>03</span>
+
+                <h3>Pay Securely</h3>
+
+                <p>
+                    Complete your payment and receive instant order confirmation.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <span>04</span>
+
+                <h3>Scan & Collect</h3>
+
+                <p>
+                    Show your unique QR code at the canteen and collect your order.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Account Section -->
+
+    <section class="account-section" id="get-started">
+
+        <div class="account-content">
+
+            <p class="section-tag">
+                GET STARTED
+            </p>
+
+            <h2>
+                One Campus.<br>
+                <span>One Smart Canteen.</span>
+            </h2>
+
+            <p>
+                Choose your role to log in or create an account.
+            </p>
+
+        </div>
+
+
+        <div class="account-cards">
+
+
+            <!-- Student -->
+
+            <div class="account-card">
+
+                <div class="account-icon">
+                    🎓
+                </div>
+
+                <div>
+                    <h3>Student</h3>
+                    <p>Order food and track your order.</p>
+                </div>
+
+                <a href="student-login.html" class="register-btn">
+                    Student Login
+                </a>
+
+            </div>
+
+
+            <!-- Canteen Staff -->
+
+            <div class="account-card">
+
+                <div class="account-icon">
+                    🧑‍🍳
+                </div>
+
+                <div>
+                    <h3>Canteen Staff</h3>
+                    <p>Manage food, orders and pickups.</p>
+                </div>
+
+                <a href="staff-login.html" class="register-btn">
+                    Staff Login
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer class="footer">
+
+        <div class="footer">
+            Campus<span>Bite</span>
+        </div>
+
+        <p>
+            Smart Canteen Management System
+        </p>
+
+        <div class="footer-line"></div>
+
+        <p class="copyright">
+            @ 2026 CampusBite. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="canteen-status.js"></script>
+    <script src="notification.js"></script>
+    <script src="index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Settings - CampusBite</title>
+
+    <link rel="stylesheet" href="student-settings.css">
+    <link rel="stylesheet" href="design-system.css?v=12">
+</head>
+
+    <script src="notification.js"></script>
+    <script src="student-settings.js"></script>
+
+</body>
+
+    <div class="settings-page">
+
+        <header class="settings-header">
+            <div>
+                <h1>Settings</h1>
+                <p>Customize your CampusBite experience.</p>
+            </div>
+
+            <a href="student-dashboard.html" class="back-btn">
+                ← Dashboard
+            </a>
+        </header>
+
+
+        <section class="settings-card">
+
+            <h2>Account Settings</h2>
+
+            <div class="setting-row">
+                <div>
+                    <h3>Notifications</h3>
+                    <p>Receive updates about your orders.</p>
+                </div>
+
+                <label class="toggle">
+                    <input type="checkbox" checked>
+                    <span></span>
+                </label>
+            </div>
+
+
+            <div class="setting-row">
+                <div>
+                    <h3>Order Updates</h3>
+                    <p>Get notified when your order is ready.</p>
+                </div>
+
+                <label class="toggle">
+                    <input type="checkbox" checked>
+                    <span></span>
+                </label>
+            </div>
+
+
+            <div class="setting-row">
+                <div>
+                    <h3>Save Login</h3>
+                    <p>Keep your account signed in on this device.</p>
+                </div>
+
+                <label class="toggle">
+                    <input type="checkbox">
+                    <span></span>
+                </label>
+            </div>
+
+        </section>
+
+
+        <section class="settings-card">
+
+            <h2>Preferences</h2>
+
+            <div class="setting-option">
+                <label for="language">Language</label>
+
+                <select id="language">
+                    <option>English</option>
+                    <option>Tamil</option>
+                </select>
+            </div>
+
+
+            <div class="setting-option">
+                <label for="theme">Theme</label>
+
+                <select id="theme">
+                    <option>CampusBite Dark</option>
+                    <option>System Default</option>
+                </select>
+            </div>
+
+        </section>
+
+
+        <section class="settings-card danger-card">
+
+            <h2>Account</h2>
+
+            <button class="logout-btn" onclick="logoutUser()">
+                Logout
+            </button>
+
+        </section>
+
+    </div>
+
+
+    <script>
+        function logoutUser() {
+            localStorage.clear();
+            window.location.href = "login.html";
+        }
+    </script>
+
+</body>
+</html>

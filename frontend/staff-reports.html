@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusBite | Reports</title>
+    <link rel="stylesheet" href="staff-menu.css">
+    <link rel="stylesheet" href="staff-reports.css">
+    <link rel="stylesheet" href="staff-sidebar.css">
+    <link rel="stylesheet" href="design-system.css?v=12">
+</head>
+<body>
+<div class="staff-layout">
+    <div id="staff-sidebar-root"></div>
+
+    <main class="staff-main reports-main">
+        <header class="menu-header">
+            <div class="header-left"><span class="eyebrow">CANTEEN OPERATIONS</span><h1>Reports</h1><p>Track sales, orders and the food items driving your canteen.</p></div>
+            <div class="header-right"><div class="store-status"><span class="status-dot"></span><span id="store-status-text">Store Online</span></div><button class="refresh-btn" id="refresh-reports" title="Refresh reports">&#8635;</button></div>
+        </header>
+
+        <section class="report-toolbar">
+            <div><span class="toolbar-label">REPORT PERIOD</span><strong id="report-period">Today</strong></div>
+            <div class="date-fields"><label>From <input type="date" id="date-from"></label><label>To <input type="date" id="date-to"></label><button class="primary-btn" id="load-report">Apply dates</button></div>
+        </section>
+
+        <section class="report-summary">
+            <div class="report-card"><span>Total orders</span><strong id="total-orders">0</strong><small>within selected period</small></div>
+            <div class="report-card"><span>Paid sales</span><strong id="total-sales">₹0.00</strong><small>after recorded refunds</small></div>
+            <div class="report-card"><span>Refunded</span><strong id="refunded-sales">₹0.00</strong><small>cancelled paid orders</small></div>
+            <div class="report-card"><span>Average order</span><strong id="average-order">₹0.00</strong><small>paid orders only</small></div>
+            <div class="report-card"><span>Collected</span><strong id="collected-orders">0</strong><small><span id="cancelled-orders">0</span> cancelled</small></div>
+        </section>
+
+        <section class="report-columns">
+            <div class="report-panel"><div class="panel-heading"><div><h2>Sales by day</h2><p>Order volume and sales for the selected period.</p></div></div><div id="daily-sales" class="daily-sales"></div></div>
+            <div class="report-panel"><div class="panel-heading"><div><h2>Order status</h2><p>Current outcome of orders in this period.</p></div></div><div id="status-breakdown" class="status-breakdown"></div></div>
+        </section>
+
+        <section class="report-panel popular-panel"><div class="panel-heading"><div><h2>Popular food items</h2><p>Top ten items by quantity sold.</p></div></div><div id="popular-items" class="popular-items"></div></section>
+    </main>
+</div>
+<div class="page-toast" id="toast"></div>
+<script src="staff-sidebar.js"></script>
+<script src="staff-reports.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CampusBite - Payment Success</title>
+
+    <link rel="stylesheet" href="payment-success.css">
+    <link rel="stylesheet" href="canteen-status.css">
+    <link rel="stylesheet" href="design-system.css?v=12">
+
+</head>
+
+<body>
+
+    <div class="success-page">
+
+        <div class="success-card">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <span class="section-label">
+                CAMPUSBITE
+            </span>
+
+            <h1>Payment Successful!</h1>
+
+            <p>
+                Your order has been placed successfully.
+            </p>
+
+
+            <div class="success-details">
+
+                <div>
+                    <span>Order ID</span>
+                    <strong id="success-order-id">#---</strong>
+                </div>
+
+                <div>
+                    <span>Amount Paid</span>
+                    <strong id="success-amount">₹0</strong>
+                </div>
+
+                <div>
+                    <span>Pickup Slot</span>
+                    <strong id="success-slot">---</strong>
+                </div>
+
+            </div>
+
+
+            <div class="qr-container">
+
+                <img
+                    id="order-qr"
+                    src=""
+                    alt="Pickup QR Code">
+
+            </div>
+
+
+            <p class="qr-message">
+
+                Show this QR code to the canteen staff
+                when collecting your order.
+
+            </p>
+
+            <a
+                class="primary-btn success-download-btn"
+                id="download-qr-btn"
+                href="#"
+                hidden>
+                Download QR
+            </a>
+
+            <a class="success-orders-link" href="student-orders.html">
+                View My Orders
+            </a>
+
+
+            <button
+                class="success-home-btn"
+                onclick="window.location.href='student-dashboard.html'">
+
+                Back to Dashboard
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="canteen-status.js"></script>
+    <script src="notification.js"></script>
+    <script src="payment-success.js"></script>
+
+</body>
+
+</html>

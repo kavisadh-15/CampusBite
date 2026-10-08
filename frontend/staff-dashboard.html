@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Staff Dashboard | CampusBite</title>
+
+    <link rel="stylesheet" href="staff-dashboard.css">
+    <link rel="stylesheet" href="staff-sidebar.css">
+    <link rel="stylesheet" href="design-system.css?v=12">
+</head>
+
+<body>
+
+<div class="staff-dashboard">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <div id="staff-sidebar-root"></div>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="staff-main">
+
+
+        <!-- TOP BAR -->
+
+        <header class="staff-topbar">
+
+            <div>
+
+                <span class="eyebrow">
+                    STAFF PANEL
+                </span>
+
+                <h1>
+                    Good evening,
+                    <span id="staff-name-display">
+                        Staff
+                    </span>
+                    👋
+                </h1>
+
+                <p>
+                    Keep today's canteen operations smooth and fast.
+                </p>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <div class="store-control-inline">
+                    <span class="store-status-dot" id="store-status-dot"></span>
+                    <div class="store-control-copy">
+                        <strong id="store-status-title">Store Online</strong>
+                        <small id="store-status-text">Students can place orders.</small>
+                    </div>
+                    <button
+                        class="store-toggle-btn online"
+                        type="button"
+                        id="store-toggle-btn"
+                        onclick="toggleStoreStatus()">
+                        <span id="store-toggle-icon" aria-hidden="true">●</span>
+                        <span id="store-toggle-text">Close canteen</span>
+                    </button>
+                </div>
+
+                <button
+                    class="icon-btn"
+                    type="button"
+                    id="refresh-dashboard"
+                    title="Refresh dashboard">
+
+                    ↻
+
+                </button>
+
+
+                <div class="staff-profile">
+
+                    <div class="staff-avatar">
+                        S
+                    </div>
+
+                    <div>
+
+                        <strong id="staff-profile-name">
+                            Staff
+                        </strong>
+
+                        <span>
+                            Canteen Staff
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- STORE OFFLINE BANNER -->
+
+        <section
+            class="offline-banner hidden"
+            id="offline-banner">
+
+            <div class="offline-banner-icon">
+                ⏸
+            </div>
+
+            <div>
+
+                <strong>
+                    Store is currently offline
+                </strong>
+
+                <span>
+                    Students will see the canteen as offline and new orders should be paused.
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DASHBOARD CONTENT
+        ================================================== -->
+
+        <div id="dashboard-view">
+
+
+            <!-- HERO / OPERATIONS PULSE -->
+
+            <section class="operations-hero">
+
+                <div class="hero-copy">
+
+                    <span class="eyebrow">
+                        OPERATIONS PULSE
+                    </span>
+
+                    <h2>
+                        Your canteen at a glance.
+                    </h2>
+
+                    <p id="operations-message">
+                        Everything looks ready.
+                        Keep an eye on pending orders and stock.
+                    </p>
+
+
+                    <div class="hero-chips">
+
+                        <span class="hero-chip">
+
+                            <i></i>
+
+                            <b id="hero-store-state">
+                                Online
+                            </b>
+
+                        </span>
+
+
+                        <span class="hero-chip">
+
+                            ⏱
+
+                            <b id="hero-pending">
+                                0
+                            </b>
+
+                            pending
+
+                        </span>
+
+
+                        <span class="hero-chip">
+
+                            🍔
+
+                            <b id="hero-available">
+                                0
+                            </b>
+
+                            available
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-orbit">
+
+                    <div class="orbit-ring ring-one"></div>
+
+                    <div class="orbit-ring ring-two"></div>
+
+                    <div class="orbit-core">
+
+                        <span>
+                            LIVE
+                        </span>
+
+                        <strong id="hero-time">
+                            --:--
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SUMMARY CARDS -->
+
+            <section class="summary-grid">
+
+                <article class="summary-card">
+
+                    <div class="summary-icon orange">
+                        📦
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Today's Orders
+                        </span>
+
+                        <strong id="today-orders">
+                            0
+                        </strong>
+
+                        <small>
+                            Orders received today
+                        </small>
+
+                    </div>
+
+                </article>
+
+
+                <article class="summary-card">
+
+                    <div class="summary-icon green">
+                        ₹
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Today's Revenue
+                        </span>
+
+                        <strong id="today-sales">
+                            ₹0.00
+                        </strong>
+
+                        <small>
+                            Sales excluding cancelled orders
+                        </small>
+
+                    </div>
+
+                </article>
+
+
+                <article class="summary-card">
+
+                    <div class="summary-icon blue">
+                        ⏳
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Pending Orders
+                        </span>
+
+                        <strong id="pending-orders">
+                            0
+                        </strong>
+
+                        <small>
+                            Needs staff attention
+                        </small>
+
+                    </div>
+
+                </article>
+
+
+                <article class="summary-card">
+
+                    <div class="summary-icon purple">
+                        🍔
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Menu Items
+                        </span>
+
+                        <strong id="menu-items">
+                            0
+                        </strong>
+
+                        <small>
+                            Items in the menu
+                        </small>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+
+            <!-- ORDER STATUS -->
+
+            <section class="panel">
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            ORDER MONITOR
+                        </span>
+
+                        <h2>
+                            Live order pipeline
+                        </h2>
+
+                    </div>
+
+                    <span class="live-badge">
+
+                        <i></i>
+                        LIVE
+
+                    </span>
+
+                </div>
+
+
+                <div class="status-grid">
+
+                    <div class="status-card placed">
+
+                        <div class="status-top">
+
+                            <span>
+                                Placed
+                            </span>
+
+                            <b>
+                                01
+                            </b>
+
+                        </div>
+
+                        <strong id="placed-orders">
+                            0
+                        </strong>
+
+                        <small>
+                            New orders waiting
+                        </small>
+
+                    </div>
+
+
+                    <div class="status-card preparing">
+
+                        <div class="status-top">
+
+                            <span>
+                                Preparing
+                            </span>
+
+                            <b>
+                                02
+                            </b>
+
+                        </div>
+
+                        <strong id="preparing-orders">
+                            0
+                        </strong>
+
+                        <small>
+                            Kitchen in progress
+                        </small>
+
+                    </div>
+
+
+                    <div class="status-card ready">
+
+                        <div class="status-top">
+
+                            <span>
+                                Ready
+                            </span>
+
+                            <b>
+                                03
+                            </b>
+
+                        </div>
+
+                        <strong id="ready-orders">
+                            0
+                        </strong>
+
+                        <small>
+                            Waiting for pickup
+                        </small>
+
+                    </div>
+
+
+                    <div class="status-card collected">
+
+                        <div class="status-top">
+
+                            <span>
+                                Collected
+                            </span>
+
+                            <b>
+                                04
+                            </b>
+
+                        </div>
+
+                        <strong id="collected-orders">
+                            0
+                        </strong>
+
+                        <small>
+                            Completed pickups
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- RECENT ORDERS + CANTEEN HEALTH -->
+
+            <section class="two-column">
+
+                <div class="panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                LIVE ACTIVITY
+                            </span>
+
+                            <h2>
+                                Recent orders
+                            </h2>
+
+                        </div>
+
+                        <button
+                            class="ghost-btn"
+                            type="button"
+                            onclick="window.location.href='staff-orders.html'">
+
+                            View all →
+
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="recent-orders"
+                        class="orders-list">
+
+                        <div class="loading-state">
+                            Loading recent orders...
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                CANTEEN HEALTH
+                            </span>
+
+                            <h2>
+                                Store snapshot
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="health-list">
+
+                        <div class="health-row">
+
+                            <div class="health-icon">
+                                🍔
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Available items
+                                </strong>
+
+                                <small>
+                                    Currently orderable
+                                </small>
+
+                            </div>
+
+                            <b id="available-items">
+                                0
+                            </b>
+
+                        </div>
+
+
+                        <div class="health-row">
+
+                            <div class="health-icon warning">
+                                ⚠
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Low stock
+                                </strong>
+
+                                <small>
+                                    Needs restocking soon
+                                </small>
+
+                            </div>
+
+                            <b id="low-stock-items">
+                                0
+                            </b>
+
+                        </div>
+
+
+                        <div class="health-row">
+
+                            <div class="health-icon danger">
+                                ×
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Out of stock
+                                </strong>
+
+                                <small>
+                                    Currently unavailable
+                                </small>
+
+                            </div>
+
+                            <b id="out-of-stock-items">
+                                0
+                            </b>
+
+                        </div>
+
+
+                        <div class="health-row">
+
+                            <div class="health-icon hot">
+                                🔥
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Popular item
+                                </strong>
+
+                                <small id="popular-item">
+                                    Loading...
+                                </small>
+
+                            </div>
+
+                            <b>
+                                TOP
+                            </b>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SMART INSIGHTS -->
+
+            <section class="two-column">
+
+                <div class="panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                SMART INSIGHTS
+                            </span>
+
+                            <h2>
+                                Today's highlights
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="insight-grid">
+
+                        <div class="insight-card">
+
+                            <span class="insight-symbol">
+                                ₹
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    Average order value
+                                </small>
+
+                                <strong id="average-order-value">
+                                    ₹0.00
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="insight-card">
+
+                            <span class="insight-symbol">
+                                🔥
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    Top seller
+                                </small>
+
+                                <strong id="insight-popular">
+                                    No data yet
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="insight-card">
+
+                            <span class="insight-symbol">
+                                ⚠
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    Stock watch
+                                </small>
+
+                                <strong id="insight-stock">
+                                    All good
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="insight-card">
+
+                            <span class="insight-symbol">
+                                ⚡
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    Kitchen load
+                                </small>
+
+                                <strong id="insight-load">
+                                    Low
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- REVENUE PULSE -->
+
+                <div class="panel revenue-pulse-panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                REVENUE PULSE
+                            </span>
+
+                            <h2>
+                                Today's sales activity
+                            </h2>
+
+                        </div>
+
+                        <span class="period-pill">
+                            Today
+                        </span>
+
+                    </div>
+
+
+                    <div class="sales-activity-summary">
+                        <span>Paid sales today</span>
+                        <strong id="revenue-pulse-value">₹0.00</strong>
+                    </div>
+
+                    <div
+                        class="sales-activity-list"
+                        id="sales-overview"
+                        aria-live="polite">
+                        <div class="chart-empty">Loading sales activity...</div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- POPULAR + PICKUP -->
+
+            <section class="two-column">
+
+                <div class="panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                TODAY'S TREND
+                            </span>
+
+                            <h2>
+                                Popular item
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="featured-item">
+
+                        <div class="featured-rank">
+                            #1
+                        </div>
+
+                        <div class="featured-copy">
+
+                            <span>
+                                Most ordered food
+                            </span>
+
+                            <strong id="featured-popular">
+                                No data yet
+                            </strong>
+
+                            <small id="featured-popular-count">
+                                Waiting for order data
+                            </small>
+
+                        </div>
+
+                        <div class="featured-flame">
+                            🔥
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                PICKUP FLOW
+                            </span>
+
+                            <h2>
+                                Upcoming slots
+                            </h2>
+
+                        </div>
+
+                        <button
+                            class="ghost-btn"
+                            type="button"
+                            data-coming-soon="Pickup Slot Management">
+
+                            Manage →
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="slot-list">
+
+                        <div class="slot-row">
+
+                            <div>
+
+                                <strong>
+                                    10:00 – 10:30
+                                </strong>
+
+                                <small>
+                                    Pickup window
+                                </small>
+
+                            </div>
+
+                            <span>
+                                Ready soon
+                            </span>
+
+                        </div>
+
+
+                        <div class="slot-row">
+
+                            <div>
+
+                                <strong>
+                                    10:30 – 11:00
+                                </strong>
+
+                                <small>
+                                    Pickup window
+                                </small>
+
+                            </div>
+
+                            <span>
+                                Open
+                            </span>
+
+                        </div>
+
+
+                        <div class="slot-row">
+
+                            <div>
+
+                                <strong>
+                                    11:00 – 11:30
+                                </strong>
+
+                                <small>
+                                    Pickup window
+                                </small>
+
+                            </div>
+
+                            <span>
+                                Open
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- QUICK ACTIONS -->
+
+            <section class="panel">
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            QUICK ACTIONS
+                        </span>
+
+                        <h2>
+                            Run the canteen
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="action-grid">
+
+
+                    <!-- MENU -->
+
+                    <button
+                        class="action-card"
+                        type="button"
+                        onclick="window.location.href='staff-menu.html'">
+
+                        <span class="action-icon">
+                            🍔
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Manage Menu
+                            </strong>
+
+                            <small>
+                                Add food, prices & availability
+                            </small>
+
+                        </div>
+
+                        <span class="arrow">
+                            →
+                        </span>
+
+                    </button>
+
+
+                    <!-- ORDERS -->
+
+                    <button
+                        class="action-card"
+                        type="button"
+                        onclick="window.location.href='staff-orders.html'">
+
+                        <span class="action-icon">
+                            📦
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Process Orders
+                            </strong>
+
+                            <small>
+                                Confirm, prepare & mark ready
+                            </small>
+
+                        </div>
+
+                        <span class="arrow">
+                            →
+                        </span>
+
+                    </button>
+
+
+                    <!-- QR SCANNER -->
+
+                    <button
+                        class="action-card"
+                        type="button"
+                        onclick="window.location.href='staff-qr-scanner.html'">
+
+                        <span class="action-icon">
+                            ▣
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Scan Pickup QR
+                            </strong>
+
+                            <small>
+                                Verify student collection
+                            </small>
+
+                        </div>
+
+                        <span class="arrow">
+                            →
+                        </span>
+
+                    </button>
+
+
+                    <!-- REPORTS -->
+
+                    <button
+                        class="action-card"
+                        type="button"
+                        onclick="window.location.href='staff-reports.html'">
+
+                        <span class="action-icon">
+                            📊
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                View Reports
+                            </strong>
+
+                            <small>
+                                Sales & order performance
+                            </small>
+
+                        </div>
+
+                        <span class="arrow">
+                            →
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ALERTS -->
+
+            <section class="panel">
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            ATTENTION REQUIRED
+                        </span>
+
+                        <h2>
+                            Staff alerts
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="staff-alerts"
+                    class="alert-list">
+
+                    <div class="alert-item success">
+
+                        <span class="alert-icon">
+                            ✓
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Dashboard is ready
+                            </strong>
+
+                            <small>
+                                Live data will refresh automatically.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SYSTEM FOOTER
+        ================================================== -->
+
+        <footer class="system-status">
+
+            <div>
+
+                <span class="system-dot"></span>
+
+                <div>
+
+                    <strong>
+                        CampusBite System
+                    </strong>
+
+                    <small>
+                        Dashboard connected to the local Flask service
+                    </small>
+
+                </div>
+
+            </div>
+
+            <span class="online-label">
+                ONLINE
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<div id="dashboard-toast" class="dashboard-toast" role="status" aria-live="polite"></div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script src="notification.js"></script>
+<script src="staff-sidebar.js"></script>
+<script src="staff-dashboard.js"></script>
+
+</body>
+
+</html>

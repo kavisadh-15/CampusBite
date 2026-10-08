@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusBite | Orders</title>
+
+    <link rel="stylesheet" href="staff-menu.css">
+    <link rel="stylesheet" href="staff-orders.css">
+    <link rel="stylesheet" href="staff-sidebar.css">
+    <link rel="stylesheet" href="design-system.css?v=12">
+</head>
+
+<body>
+
+    <div class="app-container staff-layout">
+
+        <div id="staff-sidebar-root"></div>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Top Bar -->
+            <header class="topbar">
+
+                <div>
+                    <h1>Orders</h1>
+                    <p>Manage and track student orders</p>
+                </div>
+
+                <div class="topbar-actions">
+
+                    <div class="store-status" id="storeStatus">
+                        <span class="status-dot"></span>
+                        <span id="storeStatusText">Store Online</span>
+                    </div>
+
+                    <button class="refresh-btn" id="refreshOrdersBtn">
+                        ↻
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- Order Summary -->
+            <section class="order-summary">
+
+                <div class="summary-card">
+                    <div class="summary-icon">📦</div>
+
+                    <div>
+                        <span>Total Orders</span>
+                        <h2 id="totalOrders">0</h2>
+                    </div>
+                </div>
+
+
+                <div class="summary-card">
+                    <div class="summary-icon pending">⏳</div>
+
+                    <div>
+                        <span>Pending</span>
+                        <h2 id="pendingOrders">0</h2>
+                    </div>
+                </div>
+
+
+                <div class="summary-card">
+                    <div class="summary-icon preparing">🔥</div>
+
+                    <div>
+                        <span>Preparing</span>
+                        <h2 id="preparingOrders">0</h2>
+                    </div>
+                </div>
+
+
+                <div class="summary-card">
+                    <div class="summary-icon ready">✓</div>
+
+                    <div>
+                        <span>Ready</span>
+                        <h2 id="readyOrders">0</h2>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- Orders Section -->
+            <section class="orders-section">
+
+                <div class="section-header">
+
+                    <div>
+                        <h2>Recent Orders</h2>
+                        <p>View and update order status</p>
+                    </div>
+
+                    <div class="order-tools">
+
+                        <div class="search-box">
+
+                            <span>⌕</span>
+
+                            <input
+                                type="text"
+                                id="orderSearch"
+                                placeholder="Search order or student..."
+                            >
+
+                        </div>
+
+
+                        <select id="statusFilter">
+
+                            <option value="ALL">All Status</option>
+                            <option value="PENDING">Awaiting confirmation</option>
+                            <option value="CONFIRMED">Confirmed</option>
+                            <option value="PREPARING">Preparing</option>
+                            <option value="READY">Ready</option>
+                            <option value="CANCELLED">Cancelled</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Orders Container -->
+                <div id="ordersContainer" class="orders-container">
+
+                    <!-- Orders will be loaded using JavaScript -->
+
+                    <div class="loading-state" id="loadingState">
+
+                        <div class="loader"></div>
+
+                        <p>Loading orders...</p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Empty State -->
+                <div class="empty-state" id="emptyState">
+
+                    <div class="empty-icon">📭</div>
+
+                    <h3>No Orders Found</h3>
+
+                    <p>
+                        There are no orders matching your search or filter.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- Notification -->
+    <div id="toast" class="toast"></div>
+
+
+    <script src="staff-sidebar.js"></script>
+    <script src="staff-orders.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusBite - Payment</title>
+
+    <link rel="stylesheet" href="payment.css">
+    <link rel="stylesheet" href="canteen-status.css">
+    <link rel="stylesheet" href="design-system.css?v=12">
+</head>
+
+<body>
+
+    <div class="payment-page">
+
+        <div class="payment-header">
+
+            <span class="section-label">CAMPUSBITE</span>
+
+            <h1>Complete Payment</h1>
+
+            <p>Secure your order and get your pickup QR.</p>
+
+        </div>
+
+
+        <div class="payment-layout">
+
+
+            <!-- PAYMENT METHODS -->
+
+            <div class="payment-methods">
+
+                <h2>Payment Method</h2>
+
+                <div class="payment-option selected" onclick="selectPaymentMethod(this)">
+
+                    <div class="payment-icon">
+                        UPI
+                    </div>
+
+                <div>
+                <h3>UPI Payment</h3>
+                    <p>Google Pay • PhonePe • Paytm</p>
+            </div>
+
+        <span class="payment-check">✓</span>
+
+    </div>
+
+
+                <div class="payment-option" onclick="selectPaymentMethod(this)">
+
+                    <div class="payment-icon">
+                        CARD
+                    </div>
+
+                <div>
+                    <h3>Card Payment</h3>
+                    <p>Credit / Debit Card</p>
+                </div>
+
+            </div>
+
+
+                <div class="demo-note">
+
+                    <strong>Demo Payment</strong>
+
+                    <p>
+                        This project currently uses a simulated
+                        payment process for demonstration.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PAYMENT SUMMARY -->
+
+            <div class="payment-summary">
+
+                <span class="section-label">
+                    ORDER SUMMARY
+                </span>
+
+                <h2>Payment Details</h2>
+
+
+                <div class="payment-row">
+
+                    <span>Order Amount</span>
+
+                    <strong id="payment-amount">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="payment-row">
+
+                    <span>Pickup Fee</span>
+
+                    <strong>₹0</strong>
+
+                </div>
+
+
+                <div class="summary-divider"></div>
+
+
+                <div class="payment-total">
+
+                    <span>Total Payable</span>
+
+                    <strong id="payment-total">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <button
+                    class="pay-now-btn"
+                    onclick="processPayment()">
+
+                    Pay Now
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="canteen-status.js"></script>
+    <script src="notification.js"></script>
+    <script src="payment.js"></script>
+
+</body>
+</html>

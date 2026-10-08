@@ -1,0 +1,77 @@
+.canteen-status-banner {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-height: 54px;
+    padding: 9px clamp(16px, 4vw, 48px);
+    border-bottom: 1px solid;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.canteen-status-banner strong,
+.canteen-status-banner small {
+    display: block;
+}
+
+.canteen-status-banner strong {
+    font-size: 13px;
+    line-height: 1.35;
+}
+
+.canteen-status-banner small {
+    margin-top: 2px;
+    font-size: 11px;
+    line-height: 1.4;
+    opacity: 0.82;
+}
+
+.canteen-status-mark {
+    display: grid;
+    flex: 0 0 27px;
+    width: 27px;
+    height: 27px;
+    place-items: center;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.canteen-status-banner.open {
+    border-color: #bfdcc8;
+    background: #eaf5ed;
+    color: #215a34;
+}
+
+.canteen-status-banner.open .canteen-status-mark {
+    background: #d2e9d8;
+}
+
+.canteen-status-banner.closed {
+    border-color: #e6c5bb;
+    background: #fff0eb;
+    color: #873b2e;
+}
+
+.canteen-status-banner.closed .canteen-status-mark {
+    background: #f8d9d0;
+}
+
+.canteen-status-banner.unavailable {
+    border-color: #d7d7ce;
+    background: #f0f1eb;
+    color: #4e5548;
+}
+
+.canteen-status-banner.unavailable .canteen-status-mark {
+    background: #dfe2d7;
+}
+
+@media (max-width: 480px) {
+    .canteen-status-banner {
+        align-items: flex-start;
+        padding: 9px 14px;
+    }
+}

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | CampusBite</title>
+
+    <link rel="stylesheet" href="student-dashboard.css">
+    <link rel="stylesheet" href="canteen-status.css">
+    <link rel="stylesheet" href="design-system.css?v=12">
+</head>
+
+<body>
+
+    <div class="dashboard-page">
+
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+
+            <div class="dashboard-logo">
+                Campus<span>Bite</span>
+            </div>
+
+            <nav class="dashboard-nav">
+
+                <a href="#" class="nav-item active">
+                    <span>⌂</span>
+                    Dashboard
+                </a>
+
+                <a href="menu.html" class="nav-item">
+                    <span>🍔</span>
+                    Today's Menu
+                </a>
+
+                <a href="checkout.html" class="nav-item">
+                    <span>🛒</span>
+                    My Cart
+                </a>
+
+                <a href="student-orders.html" class="nav-item">
+                    <span>📦</span>
+                    My Orders
+                </a>
+
+                <a href="student-profile.html" class="nav-item">
+                    <span>👤</span>
+                    Profile
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <a href="student-settings.html" class="nav-item">
+                    <span>⚙️</span>
+                    Settings
+                </a>
+
+                <a href="login.html" class="nav-item logout">
+                    <span>↪</span>
+                    Logout
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+
+            <!-- Top Bar -->
+            <header class="dashboard-header">
+
+                <div>
+                    <p class="dashboard-small-text">
+                        Welcome back 👋
+                    </p>
+
+                    <h1>
+                        Student Dashboard
+                    </h1>
+                </div>
+
+                <div class="dashboard-profile">
+
+                    <div class="profile-avatar">
+                        S
+                    </div>
+
+                    <div class="profile-info">
+                        <strong id="student-name-display">Student</strong>
+                        <span id="student-register-display">CampusBite User</span>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- Welcome Banner -->
+            <section class="welcome-banner">
+
+                <div class="welcome-content">
+
+                    <span class="welcome-label">
+                        🍽️ CAMPUS DINING
+                    </span>
+
+                    <h2>
+                        Hungry? Let's get<br>
+                        you something delicious.
+                    </h2>
+
+                    <p>
+                        Explore today's menu and order your favourite
+                        food without waiting in the canteen queue.
+                    </p>
+
+                    <button class="explore-btn" onclick="window.location.href='menu.html'">
+                        Explore Menu
+                    </button>
+
+                </div>
+
+                <div class="welcome-icon">
+                    🍱
+                </div>
+
+            </section>
+
+
+            <!-- Quick Stats -->
+            <section class="dashboard-stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🍔
+                    </div>
+
+                    <div>
+                        <span>Today's Items</span>
+                        <strong id="today-menu-count">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🛒
+                    </div>
+
+                    <div>
+                        <span>Cart Items</span>
+                        <strong id="dashboard-cart-count">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📦
+                    </div>
+
+                    <div>
+                        <span>Total Orders</span>
+                        <strong id="dashboard-order-count">0</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Pickup Pulse -->
+            <section class="pickup-pulse">
+
+                <div class="pickup-pulse-copy">
+                    <span class="section-label">PICKUP PULSE</span>
+
+                    <h2>Your next break, planned.</h2>
+
+                    <p>
+                        Canteen is open and orders are moving smoothly today.
+                    </p>
+
+                    <div class="pulse-status">
+                        <span class="pulse-dot"></span>
+                        Live kitchen status
+                    </div>
+                </div>
+
+                <div class="student-pickup-time">
+                    <span>AVERAGE PREP TIME</span>
+                    <strong>12 <small>min</small></strong>
+                    <em>Ready when you are</em>
+                </div>
+
+                <div class="pickup-steps">
+                    <div class="pickup-step active">
+                        <span>1</span>
+                        <p>Choose</p>
+                    </div>
+
+                    <div class="pickup-line"></div>
+
+                    <div class="pickup-step">
+                        <span>2</span>
+                        <p>Pay</p>
+                    </div>
+
+                    <div class="pickup-line"></div>
+
+                    <div class="pickup-step">
+                        <span>3</span>
+                        <p>Collect</p>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- ================================
+                 TODAY'S MENU
+            ================================ -->
+
+            <section class="menu-section">
+
+                <div class="section-header">
+
+                    <div class="menu-title">
+                        <span class="section-label">CANTEEN MENU</span>
+
+                        <h2>Explore Today's Menu</h2>
+
+                        <p>
+                            Browse all available food items and place your order.
+                        </p>
+                    </div>
+
+                    <button
+                        class="see-all-btn"
+                        onclick="window.location.href='menu.html'">
+                        Show All
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- ================================
+                 MY CART
+            ================================ -->
+
+<section class="cart-section" id="cart-section">
+
+    <div class="section-header">
+
+        <div class="menu-title">
+            <span class="section-label">YOUR ORDER</span>
+
+            <h2>My Cart</h2>
+
+            <p>
+                Review your items before checkout
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="cart-layout">
+
+        <!-- CART ITEMS -->
+
+        <div class="cart-items" id="cart-items">
+
+            <!-- Cart items will load here -->
+
+        </div>
+
+
+        <!-- CART SUMMARY -->
+
+        <div class="cart-summary">
+
+            <span class="section-label">
+                ORDER SUMMARY
+            </span>
+
+            <h3>Bill Details</h3>
+
+            <div class="summary-row">
+                <span>Items</span>
+                <strong id="cart-item-count">0</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <strong id="cart-subtotal">₹0</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Pickup Fee</span>
+                <strong>₹0</strong>
+            </div>
+
+            <div class="summary-divider"></div>
+
+            <div class="summary-total">
+                <span>Total</span>
+                <strong id="cart-total">₹0</strong>
+            </div>
+
+            <button
+                class="checkout-btn"
+                onclick="goToCheckout()"
+>
+                Proceed to Checkout
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- EMPTY CART -->
+
+    <div class="cart-empty" id="cart-empty">
+
+        <h3>Your cart is empty</h3>
+
+        <p>
+            Add something delicious from today's menu.
+        </p>
+
+    </div>
+
+</section>
+
+
+        </main>
+
+    </div>
+    <script src="canteen-status.js"></script>
+    <script src="notification.js"></script>
+    <script src="student-dashboard.js"></script>
+
+</body>
+
+</html>

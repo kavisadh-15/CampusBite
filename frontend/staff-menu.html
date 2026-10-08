@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusBite | Menu</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="staff-menu.css">
+    <link rel="stylesheet" href="staff-sidebar.css">
+    <link rel="stylesheet" href="design-system.css?v=12">
+</head>
+
+<body>
+
+<div class="staff-layout">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <div id="staff-sidebar-root"></div>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="staff-main">
+
+        <!-- HEADER -->
+
+        <header class="menu-header">
+
+            <div class="header-left">
+
+                <span class="eyebrow">
+                    CANTEEN OPERATIONS
+                </span>
+
+                <h1>Menu Management</h1>
+
+                <p>
+                    Manage food items, prices, stock and availability.
+                </p>
+
+            </div>
+
+            <div class="header-right">
+
+                <div class="store-status">
+                    <span class="status-dot"></span>
+                    <span id="store-status-text">Store Online</span>
+                </div>
+
+                <button
+                    class="refresh-btn"
+                    id="refresh-btn"
+                    title="Refresh menu"
+                >
+                    ↻
+                </button>
+
+                <button
+                    class="add-food-btn"
+                    id="add-food-btn"
+                >
+                    <span>＋</span>
+                    Add Food
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= SUMMARY ================= -->
+
+        <section class="summary-grid">
+
+            <div class="summary-card">
+
+                <div class="summary-icon">🍽</div>
+
+                <div class="summary-info">
+                    <span>Total Items</span>
+                    <strong id="total-items">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon green">✓</div>
+
+                <div class="summary-info">
+                    <span>Available</span>
+                    <strong id="available-items">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon orange">⚠</div>
+
+                <div class="summary-info">
+                    <span>Low Stock</span>
+                    <strong id="low-stock-items">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon red">○</div>
+
+                <div class="summary-info">
+                    <span>Out of Stock</span>
+                    <strong id="out-stock-items">0</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FILTER ================= -->
+
+        <section class="filter-panel">
+
+            <div class="search-wrapper">
+
+                <span class="search-icon">⌕</span>
+
+                <input
+                    type="text"
+                    id="menu-search"
+                    placeholder="Search food items..."
+                >
+
+            </div>
+
+
+            <select id="category-filter">
+
+                <option value="all">All Categories</option>
+                <option value="Breakfast">Breakfast</option>
+                <option value="Main Course">Main Course</option>
+                <option value="Snacks">Snacks</option>
+                <option value="Drinks">Drinks</option>
+                <option value="Desserts">Desserts</option>
+
+            </select>
+
+
+            <select id="availability-filter">
+
+                <option value="all">All Status</option>
+                <option value="available">Available</option>
+                <option value="unavailable">Unavailable</option>
+                <option value="low-stock">Low Stock</option>
+                <option value="out-of-stock">Out of Stock</option>
+
+            </select>
+
+        </section>
+
+
+        <!-- ================= FOOD SECTION ================= -->
+
+        <section class="food-section">
+
+            <div class="food-section-header">
+
+                <div>
+                    <h2>Food Items</h2>
+
+                    <p>
+                        Manage the food available in your canteen.
+                    </p>
+                </div>
+
+                <span id="menu-result-count">
+                    0 items
+                </span>
+
+            </div>
+
+
+            <!-- LOADING -->
+
+            <div
+                class="loading-container"
+                id="menu-loading"
+            >
+
+                <div class="loading-spinner"></div>
+
+                <span>Loading menu...</span>
+
+            </div>
+
+
+            <!-- FOOD GRID -->
+
+            <div
+                class="food-grid"
+                id="menu-items-grid"
+            ></div>
+
+
+            <!-- EMPTY -->
+
+            <div
+                class="empty-container hidden"
+                id="menu-empty-state"
+            >
+
+                <div class="empty-icon">
+                    🍽️
+                </div>
+
+                <h3>No food items found</h3>
+
+                <p>
+                    Try changing your search or add a new food item.
+                </p>
+
+                <button id="empty-add-btn">
+                    Add Food Item
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ================= ADD / EDIT MODAL ================= -->
+
+<div
+    class="modal-overlay hidden"
+    id="menu-modal"
+>
+
+    <div class="food-modal">
+
+        <div class="modal-top">
+
+            <div>
+
+                <span class="modal-eyebrow">
+                    MENU MANAGEMENT
+                </span>
+
+                <h2 id="modal-title">
+                    Add Food
+                </h2>
+
+                <p>
+                    Enter the food item details below.
+                </p>
+
+            </div>
+
+            <button
+                class="modal-close"
+                id="modal-close-btn"
+                type="button"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="food-form">
+
+            <input
+                type="hidden"
+                id="food-id"
+            >
+
+
+            <div class="form-grid">
+
+                <div class="form-field full">
+
+                    <label>Food Name</label>
+
+                    <input
+                        type="text"
+                        id="food-name"
+                        placeholder="Example: Veg Fried Rice"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label>Category</label>
+
+                    <select
+                        id="food-category"
+                        required
+                    >
+
+                        <option value="">Select category</option>
+                        <option value="Breakfast">Breakfast</option>
+                        <option value="Main Course">Main Course</option>
+                        <option value="Snacks">Snacks</option>
+                        <option value="Drinks">Drinks</option>
+                        <option value="Desserts">Desserts</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label>Price (₹)</label>
+
+                    <input
+                        type="number"
+                        id="food-price"
+                        min="0"
+                        step="0.01"
+                        placeholder="80"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label>Stock Quantity</label>
+
+                    <input
+                        type="number"
+                        id="food-stock"
+                        min="0"
+                        placeholder="50"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label>Preparation Time</label>
+
+                    <input
+                        type="number"
+                        id="food-prep-time"
+                        min="1"
+                        placeholder="10"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label>Rating</label>
+
+                    <input
+                        type="number"
+                        id="food-rating"
+                        min="0"
+                        max="5"
+                        step="0.1"
+                        placeholder="4.5"
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label>Image File Name</label>
+
+                    <input
+                        type="text"
+                        id="food-image"
+                        placeholder="food.jpg"
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label>Availability</label>
+
+                    <label class="availability-control">
+
+                        <input
+                            type="checkbox"
+                            id="food-available"
+                            checked
+                        >
+
+                        <span class="toggle"></span>
+
+                        <span id="availability-label">
+                            Available
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="form-field full">
+
+                    <label>Description</label>
+
+                    <textarea
+                        id="food-description"
+                        rows="4"
+                        placeholder="Enter a short description..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    id="cancel-food-btn"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="save-btn"
+                >
+                    ✓ Save Food
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- NOTIFICATION -->
+
+<div
+    id="notification"
+    class="notification hidden"
+></div>
+
+
+<script src="notification.js"></script>
+<script src="staff-sidebar.js"></script>
+<script src="staff-menu.js"></script>
+
+</body>
+</html>

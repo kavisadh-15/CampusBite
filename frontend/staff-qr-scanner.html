@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusBite | QR Scanner</title>
+    <link rel="stylesheet" href="staff-menu.css">
+    <link rel="stylesheet" href="staff-qr-scanner.css">
+    <link rel="stylesheet" href="staff-sidebar.css">
+    <link rel="stylesheet" href="design-system.css?v=12">
+</head>
+<body>
+<div class="staff-layout">
+    <div id="staff-sidebar-root"></div>
+
+    <main class="staff-main scanner-main">
+        <header class="menu-header">
+            <div class="header-left"><span class="eyebrow">CANTEEN OPERATIONS</span><h1>QR Scanner</h1><p>Verify pickup codes and complete student collections.</p></div>
+            <div class="header-right"><div class="store-status"><span class="status-dot"></span><span id="store-status-text">Store Online</span></div></div>
+        </header>
+
+        <section class="scanner-grid">
+            <div class="scanner-panel">
+                <div class="panel-heading"><div><h2>Scan pickup code</h2><p>Allow camera access or enter the QR text manually.</p></div><span class="scanner-state" id="scanner-state">Ready</span></div>
+                <div class="camera-frame"><video id="qr-video" playsinline></video><canvas id="qr-canvas" hidden></canvas><div class="camera-guide"></div><div class="camera-placeholder" id="camera-placeholder">Camera preview will appear here</div></div>
+                <div class="scanner-actions"><button class="primary-btn" id="start-camera-btn">Start camera</button><button class="secondary-btn" id="stop-camera-btn" disabled>Stop camera</button></div>
+                <div class="manual-entry"><label for="qr-input">QR text or order ID</label><textarea id="qr-input" rows="3" placeholder="CampusBite|Order:12|Token:... or 12"></textarea><button class="primary-btn full-btn" id="verify-btn">Verify pickup</button></div>
+            </div>
+            <div class="result-panel" id="result-panel"><div class="result-empty"><span class="result-icon">+</span><h2>No order verified</h2><p>Scan a student's QR code to view the pickup details.</p></div></div>
+        </section>
+    </main>
+</div>
+<div class="page-toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+<script src="staff-sidebar.js"></script>
+<script src="staff-qr-scanner.js"></script>
+</body>
+</html>

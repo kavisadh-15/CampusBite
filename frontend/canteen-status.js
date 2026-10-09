@@ -1,4 +1,4 @@
-const CANTEEN_STATUS_API = "http://127.0.0.1:5000/canteen/status";
+const CANTEEN_STATUS_API = "https://campusbite-lo8a.onrender.com/canteen/status";
 
 async function refreshStudentCanteenStatus() {
     const banner = document.getElementById("canteen-status-banner");

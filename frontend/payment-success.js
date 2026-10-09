@@ -14,7 +14,7 @@ if (paidOrder) {
 
     if (paidOrder.qr_image) {
         const qrUrl =
-            "http://127.0.0.1:5000/qr/" +
+            "https://campusbite-lo8a.onrender.com/qr/" +
             encodeURIComponent(paidOrder.qr_image);
 
         document.getElementById("order-qr").src =
@@ -137,7 +137,7 @@ if (registerForm) {
             try {
 
                 const response = await fetch(
-                    "http://127.0.0.1:5000/register",
+                    "https://campusbite-lo8a.onrender.com/register",
                     {
                         method: "POST",
 
@@ -251,7 +251,7 @@ if (loginForm) {
                 // NOT /staff/login
 
                 const response = await fetch(
-                    "http://127.0.0.1:5000/login",
+                    "https://campusbite-lo8a.onrender.com/login",
                     {
                         method: "POST",
 
@@ -661,7 +661,7 @@ const menuContainer =
 if (menuContainer) {
 
     fetch(
-        "http://127.0.0.1:5000/menu"
+        "https://campusbite-lo8a.onrender.com/menu"
     )
 
         .then(function (response) {
@@ -944,7 +944,7 @@ function addToCart(foodId) {
 
 
     fetch(
-        "http://127.0.0.1:5000/cart/add",
+        "https://campusbite-lo8a.onrender.com/cart/add",
         {
             method: "POST",
 
@@ -1017,7 +1017,7 @@ function updateCartQuantity(
 
 
     fetch(
-        "http://127.0.0.1:5000/cart/update",
+        "https://campusbite-lo8a.onrender.com/cart/update",
         {
             method: "PUT",
 
@@ -1072,7 +1072,7 @@ function updateCartQuantity(
 function removeCartItem(cartId) {
 
     fetch(
-        `http://127.0.0.1:5000/cart/remove/${cartId}`,
+        `https://campusbite-lo8a.onrender.com/cart/remove/${cartId}`,
         {
             method: "DELETE"
         }
@@ -1151,7 +1151,7 @@ function loadCart() {
 
 
     fetch(
-        `http://127.0.0.1:5000/cart/${studentData.id}`
+        `https://campusbite-lo8a.onrender.com/cart/${studentData.id}`
     )
 
         .then(function (response) {
@@ -1457,7 +1457,7 @@ function goToCheckout() {
 
 
     fetch(
-        `http://127.0.0.1:5000/cart/${studentData.id}`
+        `https://campusbite-lo8a.onrender.com/cart/${studentData.id}`
     )
 
         .then(function (response) {
@@ -1549,7 +1549,7 @@ function loadCheckout() {
 
 
     fetch(
-        `http://127.0.0.1:5000/cart/${studentData.id}`
+        `https://campusbite-lo8a.onrender.com/cart/${studentData.id}`
     )
 
         .then(function (response) {
@@ -1735,7 +1735,7 @@ function continueToPayment() {
 
 
     fetch(
-        "http://127.0.0.1:5000/orders/create",
+        "https://campusbite-lo8a.onrender.com/orders/create",
         {
             method: "POST",
 
@@ -1992,7 +1992,7 @@ function processPayment() {
 
 
     fetch(
-        "http://127.0.0.1:5000/payment/success",
+        "https://campusbite-lo8a.onrender.com/payment/success",
         {
             method: "POST",
 
@@ -2105,7 +2105,7 @@ function loadStudentOrders() {
 
 
     fetch(
-        `http://127.0.0.1:5000/orders/${studentData.id}`
+        `https://campusbite-lo8a.onrender.com/orders/${studentData.id}`
     )
 
         .then(function (response) {
@@ -2278,7 +2278,7 @@ function loadDashboardStats() {
     // -----------------------------
 
     fetch(
-        `http://127.0.0.1:5000/cart/${studentData.id}`
+        `https://campusbite-lo8a.onrender.com/cart/${studentData.id}`
     )
 
         .then(function (response) {
@@ -2336,7 +2336,7 @@ function loadDashboardStats() {
     // -----------------------------
 
     fetch(
-        `http://127.0.0.1:5000/orders/${studentData.id}`
+        `https://campusbite-lo8a.onrender.com/orders/${studentData.id}`
     )
 
         .then(function (response) {
@@ -2478,7 +2478,7 @@ if (staffRegisterForm) {
 
                 const response =
                     await fetch(
-                        "http://127.0.0.1:5000/staff/register",
+                        "https://campusbite-lo8a.onrender.com/staff/register",
                         {
                             method: "POST",
 
@@ -2633,7 +2633,7 @@ if (staffLoginForm) {
 
                 const response =
                     await fetch(
-                        "http://127.0.0.1:5000/staff/login",
+                        "https://campusbite-lo8a.onrender.com/staff/login",
                         {
                             method: "POST",
 
@@ -2766,7 +2766,7 @@ async function loadStaffStats() {
 
         const response =
             await fetch(
-                "http://127.0.0.1:5000/staff/stats"
+                "https://campusbite-lo8a.onrender.com/staff/stats"
             );
 
 
@@ -2843,7 +2843,7 @@ async function updateStaffOrderStatus(
 
         const response =
             await fetch(
-                `http://127.0.0.1:5000/staff/orders/${orderId}/status`,
+                `https://campusbite-lo8a.onrender.com/staff/orders/${orderId}/status`,
                 {
                     method: "PUT",
 
@@ -2911,7 +2911,7 @@ async function updateStaffOrderStatus(
    STAFF ORDERS
    ========================================= */
 
-const STAFF_API_URL = "http://127.0.0.1:5000";
+const STAFF_API_URL = "https://campusbite-lo8a.onrender.com";
 
 
 // Load Staff Orders

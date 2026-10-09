@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://127.0.0.1:5000";
+const API_BASE_URL = "https://campusbite-lo8a.onrender.com";
 
 const video = document.getElementById("qr-video");
 const canvas = document.getElementById("qr-canvas");

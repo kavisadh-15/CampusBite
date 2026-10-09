@@ -55,7 +55,7 @@
         const dots = document.querySelectorAll(".status-dot, #store-status-dot");
 
         try {
-            const response = await fetch("http://127.0.0.1:5000/canteen/status");
+            const response = await fetch("https://campusbite-lo8a.onrender.com/canteen/status");
             const data = await response.json();
             if (!response.ok || !data.success) throw new Error("Unable to load canteen status.");
 

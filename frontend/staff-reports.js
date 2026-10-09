@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://127.0.0.1:5000";
+const API_BASE_URL = "https://campusbite-lo8a.onrender.com";
 
 const dateFrom = document.getElementById("date-from");
 const dateTo = document.getElementById("date-to");

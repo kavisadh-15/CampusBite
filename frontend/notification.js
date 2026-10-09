@@ -54,7 +54,7 @@
         pollingNotifications = true;
         try {
             const response = await fetch(
-                `http://127.0.0.1:5000/notifications/${encodeURIComponent(student.id)}`,
+                `https://campusbite-lo8a.onrender.com/notifications/${encodeURIComponent(student.id)}`,
                 { cache: "no-store" }
             );
             if (!response.ok) return;
@@ -68,7 +68,7 @@
             for (const notification of unread) {
                 showOrderNotification(notification);
                 notifiedIds.add(notification.id);
-                fetch(`http://127.0.0.1:5000/notifications/${notification.id}/read`, {
+                fetch(`https://campusbite-lo8a.onrender.com/notifications/${notification.id}/read`, {
                     method: "PUT"
                 }).catch(() => {});
             }
